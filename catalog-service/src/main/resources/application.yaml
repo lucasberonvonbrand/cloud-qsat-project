@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: catalog-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_catalog?serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false # Oculta las consultas SQL en la consola
+    defer-datasource-initialization: true # Para cargar data.sql al final
+  sql:
+    init:
+      mode: always
+
+cloud:
+  consul:
+    host: localhost
+    port: 8500
+    discovery:
+      prefer-ip-address: true

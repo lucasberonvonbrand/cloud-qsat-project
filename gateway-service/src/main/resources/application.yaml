@@ -6,7 +6,7 @@ spring:
     name: gateway-service
   cloud:
     consul:
-      host: localhost
+      host: ${CONSUL_HOST:localhost}
       port: 8500
       discovery:
         prefer-ip-address: true
